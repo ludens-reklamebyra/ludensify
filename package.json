@@ -9,7 +9,14 @@
     "demo": "webpack",
     "prepublish": "npm run build && npm run demo",
     "demo:watch": "webpack --colors --watch",
+    "precommit": "lint-staged",
     "build": "NODE_ENV=production cross-env BABEL_ENV=commonjs babel src --out-dir lib"
+  },
+  "lint-staged": {
+    "src/*.js": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -34,7 +41,10 @@
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.18.0",
     "cross-env": "^3.2.3",
+    "husky": "^0.13.3",
     "jest": "^19.0.2",
+    "lint-staged": "^3.4.0",
+    "prettier": "^0.22.0",
     "react-test-renderer": "^15.4.2",
     "webpack": "^2.2.0-rc.3"
   }
