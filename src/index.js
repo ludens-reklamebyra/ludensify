@@ -4,4 +4,6 @@ import isFunction from './isFunction';
 import isString from './isString';
 import isArray from './isArray';
 
-export { isNumber, isPlainObject, isFunction, isString, isArray };
+import toggle from './toggle';
+
+export { isNumber, isPlainObject, isFunction, isString, isArray, toggle };

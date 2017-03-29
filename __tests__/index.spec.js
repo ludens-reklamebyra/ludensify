@@ -3,7 +3,8 @@ import {
   isPlainObject,
   isFunction,
   isString,
-  isArray
+  isArray,
+  toggle
 } from '../src/index';
 
 describe('isNumber', () => {
@@ -75,3 +76,11 @@ describe('isArray', () => {
     ).toEqual(true)
   });
 });
+
+describe('toggle', () => {
+  it('should throw when not defining trigger and element', () => {
+    expect(() => {
+      toggle({})
+    }).toThrow(Error)
+  })
+})
