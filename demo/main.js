@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -76,27 +76,31 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.isArray = exports.isString = exports.isFunction = exports.isPlainObject = exports.isNumber = undefined;
+exports.isEmpty = exports.isArray = exports.isString = exports.isFunction = exports.isPlainObject = exports.isNumber = undefined;
 
-var _isNumber = __webpack_require__(3);
+var _isNumber = __webpack_require__(5);
 
 var _isNumber2 = _interopRequireDefault(_isNumber);
 
-var _isPlainObject = __webpack_require__(4);
+var _isPlainObject = __webpack_require__(6);
 
 var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-var _isFunction = __webpack_require__(2);
+var _isFunction = __webpack_require__(4);
 
 var _isFunction2 = _interopRequireDefault(_isFunction);
 
-var _isString = __webpack_require__(5);
+var _isString = __webpack_require__(7);
 
 var _isString2 = _interopRequireDefault(_isString);
 
-var _isArray = __webpack_require__(1);
+var _isArray = __webpack_require__(2);
 
 var _isArray2 = _interopRequireDefault(_isArray);
+
+var _isEmpty = __webpack_require__(3);
+
+var _isEmpty2 = _interopRequireDefault(_isEmpty);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -105,9 +109,25 @@ exports.isPlainObject = _isPlainObject2.default;
 exports.isFunction = _isFunction2.default;
 exports.isString = _isString2.default;
 exports.isArray = _isArray2.default;
+exports.isEmpty = _isEmpty2.default;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isEmpty;
+function isEmpty(input) {
+  return input.length = 0;
+}
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -125,7 +145,22 @@ function isArray(input) {
 }
 
 /***/ }),
-/* 2 */
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isEmpty;
+function isEmpty(input) {
+  return input.length = 0;
+}
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -140,7 +175,7 @@ function isFunction(input) {
 }
 
 /***/ }),
-/* 3 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -155,7 +190,7 @@ function isNumber(input) {
 }
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -173,7 +208,7 @@ function isPlainObject(input) {
 }
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -188,13 +223,15 @@ function isString(input) {
 }
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var _index = __webpack_require__(0);
+
+var _isEmpty = __webpack_require__(1);
 
 function testIsNumberInDOM() {
   var typeToCheck = 100;
@@ -210,9 +247,14 @@ function testIsPlainObjectInDOM() {
   }
 }
 
+function testIsEmpty() {
+  console.log((0, _isEmpty.isEmpty)('test'));
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   testIsNumberInDOM();
   testIsPlainObjectInDOM();
+  testIsEmpty();
 });
 
 /***/ })

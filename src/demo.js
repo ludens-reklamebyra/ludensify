@@ -1,4 +1,5 @@
 import { isNumber } from '../lib/index';
+import { isEmpty } from './isEmpty';
 
 function testIsNumberInDOM() {
   const typeToCheck = 100;
@@ -14,7 +15,12 @@ function testIsPlainObjectInDOM() {
   }
 }
 
+function testIsEmpty() {
+  console.log(isEmpty('test'));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   testIsNumberInDOM();
   testIsPlainObjectInDOM();
+  testIsEmpty();
 });
