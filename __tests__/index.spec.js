@@ -1,4 +1,4 @@
-import { isNumber } from '../src/index';
+import { isNumber, isPlainObject } from '../src/index';
 
 describe('isNumber', () => {
   it('returns false if input is not a number', () => {
@@ -11,5 +11,19 @@ describe('isNumber', () => {
     expect(
       isNumber(100)
     ).toEqual(true);
+  });
+});
+
+describe('isPlainObject', () => {
+  it('should return false if input is not a plain object', () => {
+    expect(
+      isPlainObject([])
+    ).toEqual(false)
+  });
+
+  it('should return true if input is a plain object', () => {
+    expect(
+      isPlainObject({})
+    ).toEqual(true)
   });
 });
