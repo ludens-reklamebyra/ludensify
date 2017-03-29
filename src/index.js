@@ -1,4 +1,4 @@
-import toggle from './toggle';
 import isNumber from './isNumber';
+import isPlainObject from './isPlainObject';
 
-export { isNumber };
+export { isNumber, isPlainObject };

@@ -7,6 +7,14 @@ function testIsNumberInDOM() {
   }
 }
 
+function testIsPlainObjectInDOM() {
+  const typeToCheck = {};
+  if (isPlainObject(typeToCheckI)) {
+    console.log('isPlainObject returned true');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   testIsNumberInDOM();
+  testIsPlainObjectInDOM();
 });

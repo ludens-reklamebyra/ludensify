@@ -76,19 +76,20 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.isNumber = undefined;
-
-var _toggle = __webpack_require__(2);
-
-var _toggle2 = _interopRequireDefault(_toggle);
+exports.isPlainObject = exports.isNumber = undefined;
 
 var _isNumber = __webpack_require__(1);
 
 var _isNumber2 = _interopRequireDefault(_isNumber);
 
+var _isPlainObject = __webpack_require__(4);
+
+var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.isNumber = _isNumber2.default;
+exports.isPlainObject = _isPlainObject2.default;
 
 /***/ }),
 /* 1 */
@@ -106,21 +107,7 @@ function isNumber(input) {
 }
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = toggle;
-function toggle() {
-  return "hello";
-}
-
-/***/ }),
+/* 2 */,
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -136,9 +123,35 @@ function testIsNumberInDOM() {
   }
 }
 
+function testIsPlainObjectInDOM() {
+  var typeToCheck = {};
+  if (isPlainObject(typeToCheckI)) {
+    console.log('isPlainObject returned true');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   testIsNumberInDOM();
+  testIsPlainObjectInDOM();
 });
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = isPlainObject;
+function isPlainObject(input) {
+  return (typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object' && !Array.isArray(input);
+}
 
 /***/ })
 /******/ ]);
