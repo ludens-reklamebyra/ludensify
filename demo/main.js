@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -76,15 +76,19 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.toggle = undefined;
+exports.isNumber = undefined;
 
-var _toggle = __webpack_require__(1);
+var _toggle = __webpack_require__(2);
 
 var _toggle2 = _interopRequireDefault(_toggle);
 
+var _isNumber = __webpack_require__(1);
+
+var _isNumber2 = _interopRequireDefault(_isNumber);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.toggle = _toggle2.default;
+exports.isNumber = _isNumber2.default;
 
 /***/ }),
 /* 1 */
@@ -96,10 +100,9 @@ exports.toggle = _toggle2.default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = toggle;
-function toggle() {
-  console.log('HELLO');
-  return 'hello';
+exports.default = isNumber;
+function isNumber(input) {
+  return typeof input === 'number';
 }
 
 /***/ }),
@@ -109,10 +112,32 @@ function toggle() {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = toggle;
+function toggle() {
+  return "hello";
+}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _index = __webpack_require__(0);
 
+function testIsNumberInDOM() {
+  var typeToCheck = 100;
+  if ((0, _index.isNumber)(100)) {
+    console.log('isNumber returned true');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-  (0, _index.toggle)();
+  testIsNumberInDOM();
 });
 
 /***/ })

@@ -1,2 +1,4 @@
 import toggle from './toggle';
-export { toggle };
+import isNumber from './isNumber';
+
+export { isNumber };
