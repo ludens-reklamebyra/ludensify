@@ -123,7 +123,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = isEmpty;
 function isEmpty(input) {
-  return input.length = 0;
+  return input === '';
 }
 
 /***/ }),
@@ -156,7 +156,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = isEmpty;
 function isEmpty(input) {
-  return input.length = 0;
+  return input.length === 0;
 }
 
 /***/ }),
@@ -241,12 +241,13 @@ function testIsNumberInDOM() {
 }
 
 function testIsEmpty() {
-  console.log((0, _isEmpty.isEmpty)('test'));
+  if ((0, _isEmpty.isEmpty)('test')) {
+    console.log('test false');
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   testIsNumberInDOM();
-
   testIsEmpty();
 });
 
