@@ -240,20 +240,13 @@ function testIsNumberInDOM() {
   }
 }
 
-function testIsPlainObjectInDOM() {
-  var typeToCheck = {};
-  if (isPlainObject(typeToCheckI)) {
-    console.log('isPlainObject returned true');
-  }
-}
-
 function testIsEmpty() {
   console.log((0, _isEmpty.isEmpty)('test'));
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   testIsNumberInDOM();
-  testIsPlainObjectInDOM();
+
   testIsEmpty();
 });
 

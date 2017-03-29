@@ -8,19 +8,13 @@ function testIsNumberInDOM() {
   }
 }
 
-function testIsPlainObjectInDOM() {
-  const typeToCheck = {};
-  if (isPlainObject(typeToCheckI)) {
-    console.log('isPlainObject returned true');
-  }
-}
-
 function testIsEmpty() {
-  console.log(isEmpty('test'));
+  if (isEmpty('test')) {
+    console.log('test false');
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   testIsNumberInDOM();
-  testIsPlainObjectInDOM();
   testIsEmpty();
 });

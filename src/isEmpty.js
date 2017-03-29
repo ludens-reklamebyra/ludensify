@@ -1,3 +1,3 @@
 export default function isEmpty(input) {
-  return (input.length = 0);
+  return input.length === 0;
 }
