@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -76,9 +76,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.isPlainObject = exports.isNumber = undefined;
+exports.isArray = exports.isString = exports.isFunction = exports.isPlainObject = exports.isNumber = undefined;
 
-var _isNumber = __webpack_require__(1);
+var _isNumber = __webpack_require__(3);
 
 var _isNumber2 = _interopRequireDefault(_isNumber);
 
@@ -86,13 +86,61 @@ var _isPlainObject = __webpack_require__(4);
 
 var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
+var _isFunction = __webpack_require__(2);
+
+var _isFunction2 = _interopRequireDefault(_isFunction);
+
+var _isString = __webpack_require__(5);
+
+var _isString2 = _interopRequireDefault(_isString);
+
+var _isArray = __webpack_require__(1);
+
+var _isArray2 = _interopRequireDefault(_isArray);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.isNumber = _isNumber2.default;
 exports.isPlainObject = _isPlainObject2.default;
+exports.isFunction = _isFunction2.default;
+exports.isString = _isString2.default;
+exports.isArray = _isArray2.default;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = isArray;
+function isArray(input) {
+  return (typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object' && Array.isArray(input);
+}
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isFunction;
+function isFunction(input) {
+  return typeof input === 'function';
+}
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -107,8 +155,40 @@ function isNumber(input) {
 }
 
 /***/ }),
-/* 2 */,
-/* 3 */
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = isPlainObject;
+function isPlainObject(input) {
+  return (typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object' && !Array.isArray(input);
+}
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isString;
+function isString(input) {
+  return typeof input === 'string';
+}
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -134,24 +214,6 @@ document.addEventListener('DOMContentLoaded', function () {
   testIsNumberInDOM();
   testIsPlainObjectInDOM();
 });
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-exports.default = isPlainObject;
-function isPlainObject(input) {
-  return (typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object' && !Array.isArray(input);
-}
 
 /***/ })
 /******/ ]);
