@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -78,27 +78,27 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.isEmpty = exports.isArray = exports.isString = exports.isFunction = exports.isPlainObject = exports.isNumber = undefined;
 
-var _isNumber = __webpack_require__(5);
+var _isNumber = __webpack_require__(4);
 
 var _isNumber2 = _interopRequireDefault(_isNumber);
 
-var _isPlainObject = __webpack_require__(6);
+var _isPlainObject = __webpack_require__(5);
 
 var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-var _isFunction = __webpack_require__(4);
+var _isFunction = __webpack_require__(3);
 
 var _isFunction2 = _interopRequireDefault(_isFunction);
 
-var _isString = __webpack_require__(7);
+var _isString = __webpack_require__(6);
 
 var _isString2 = _interopRequireDefault(_isString);
 
-var _isArray = __webpack_require__(2);
+var _isArray = __webpack_require__(1);
 
 var _isArray2 = _interopRequireDefault(_isArray);
 
-var _isEmpty = __webpack_require__(3);
+var _isEmpty = __webpack_require__(2);
 
 var _isEmpty2 = _interopRequireDefault(_isEmpty);
 
@@ -121,9 +121,12 @@ exports.isEmpty = _isEmpty2.default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = isEmpty;
-function isEmpty(input) {
-  return input === '';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = isArray;
+function isArray(input) {
+  return (typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object' && Array.isArray(input);
 }
 
 /***/ }),
@@ -136,31 +139,13 @@ function isEmpty(input) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-exports.default = isArray;
-function isArray(input) {
-  return (typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object' && Array.isArray(input);
+exports.default = isEmpty;
+function isEmpty(input) {
+  return input === '';
 }
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = isEmpty;
-function isEmpty(input) {
-  return input.length === 0;
-}
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -175,7 +160,7 @@ function isFunction(input) {
 }
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -190,7 +175,7 @@ function isNumber(input) {
 }
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -208,7 +193,7 @@ function isPlainObject(input) {
 }
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -223,15 +208,13 @@ function isString(input) {
 }
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var _index = __webpack_require__(0);
-
-var _isEmpty = __webpack_require__(1);
 
 function testIsNumberInDOM() {
   var typeToCheck = 100;
@@ -241,9 +224,7 @@ function testIsNumberInDOM() {
 }
 
 function testIsEmpty() {
-  if ((0, _isEmpty.isEmpty)('test')) {
-    console.log('test false');
-  }
+  console.log((0, _index.isEmpty)('test'));
 }
 
 document.addEventListener('DOMContentLoaded', function () {

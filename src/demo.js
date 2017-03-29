@@ -1,5 +1,5 @@
 import { isNumber } from '../lib/index';
-import { isEmpty } from './isEmpty';
+import { isEmpty } from '../lib/index';
 
 function testIsNumberInDOM() {
   const typeToCheck = 100;
@@ -9,9 +9,7 @@ function testIsNumberInDOM() {
 }
 
 function testIsEmpty() {
-  if (isEmpty('test')) {
-    console.log('test false');
-  }
+  console.log(isEmpty('test'));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
