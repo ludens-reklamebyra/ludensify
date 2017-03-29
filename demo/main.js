@@ -258,7 +258,6 @@ function toggle(_ref) {
       speed = _ref.speed,
       complete = _ref.complete;
 
-
   if (!trigger) {
     throw new Error('Expected a \'trigger\' for the slide event.');
   } else if (!element) {
@@ -271,7 +270,7 @@ function toggle(_ref) {
   trigger.on(defaultEvent, function (e) {
     var $this = (0, _jquery2.default)(e.currentTarget);
 
-    element.slideToggle(defaultSpeed, function () {
+    element.stop().slideToggle(defaultSpeed, function () {
       if (complete) {
         if ((0, _isFunction2.default)(complete)) {
           complete($this, element, speed);

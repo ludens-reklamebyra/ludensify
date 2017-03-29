@@ -14,7 +14,7 @@ export default function toggle({ trigger, element, event, speed, complete }) {
   trigger.on(defaultEvent, e => {
     const $this = $(e.currentTarget);
 
-    element.slideToggle(defaultSpeed, () => {
+    element.stop().slideToggle(defaultSpeed, () => {
       if (complete) {
         if (isFunction(complete)) {
           complete($this, element, speed);
