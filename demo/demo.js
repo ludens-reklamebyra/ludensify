@@ -4,27 +4,10 @@
 * import { isNumber } from '../lib/index';
 **/
 import $ from 'jquery';
-import { toggle, ajaxify, isEmptyString, checkNumberLength } from '../lib/index';
+import { toggle, isEmptyString, checkNumberLength } from '../lib/index';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Demo is running');
-
-  ajaxify({
-    method: 'get',
-    url: 'http://www.ludensreklame.no/wp-json/wp/v2/posts',
-    errorMsg: 'Noe gikk alvorlig galt!',
-    loading: {
-      selector: $('#loader'),
-      loadingText: 'laster....'
-    },
-    dataType: 'json',
-    isComplete: () => {
-      console.log('completed');
-    },
-    jsonResult: response => {
-      console.log(response);
-    }
-  });
 
   toggle({
     trigger: $('#toggle-trigger'),

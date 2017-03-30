@@ -20,10 +20,6 @@ Utility helpers and functions to make developing fun and easy!
 
 - toggle
 
-<small>Ajax</small>
-
-- ajaxify
-
 ### Development
 
 ```

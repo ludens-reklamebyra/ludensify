@@ -7,9 +7,7 @@ import isEmptyString from './isEmptyString';
 import checkNumberLength from './checkNumberLength';
 import isEmail from './isEmail';
 import isPhone from './isPhone';
-
 import toggle from './toggle';
-import ajaxify from './ajaxify';
 
 export {
   isNumber,
@@ -18,7 +16,6 @@ export {
   isString,
   isArray,
   toggle,
-  ajaxify,
   isEmptyString,
   checkNumberLength,
   isEmail,
