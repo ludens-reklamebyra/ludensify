@@ -102,9 +102,9 @@ var _toggle = __webpack_require__(8);
 
 var _toggle2 = _interopRequireDefault(_toggle);
 
-var _ajax = __webpack_require__(2);
+var _ajaxify = __webpack_require__(10);
 
-var _ajax2 = _interopRequireDefault(_ajax);
+var _ajaxify2 = _interopRequireDefault(_ajaxify);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -114,7 +114,7 @@ exports.isFunction = _isFunction2.default;
 exports.isString = _isString2.default;
 exports.isArray = _isArray2.default;
 exports.toggle = _toggle2.default;
-exports.ajaxify = _ajax2.default;
+exports.ajaxify = _ajaxify2.default;
 
 /***/ }),
 /* 1 */
@@ -10377,104 +10377,7 @@ return jQuery;
 
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-exports.default = ajaxify;
-
-var _jquery = __webpack_require__(1);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _index = __webpack_require__(0);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function ajaxify() {
-  var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-  if (!(0, _index.isPlainObject)(opts)) {
-    throw new Error('Expected a plain object, and not a \'' + (typeof opts === 'undefined' ? 'undefined' : _typeof(opts)) + '\'.');
-  }
-
-  /**
-  * Default settings
-  */
-  opts = ({
-    method: null,
-    url: null,
-    data: null,
-    dataType: null,
-    outputTarget: null,
-    isComplete: Function,
-    loading: {
-      selector: null,
-      loadingText: null
-    },
-    errorMsg: null,
-    jsonResult: Function
-  }, opts);
-
-  // Define the ajax setup object
-  var setup = _extends({}, setup, {
-    type: opts.method,
-    url: opts.url,
-    data: opts.data,
-    dataType: opts.dataType,
-    beforeSend: function beforeSend() {
-      if (opts.loading) {
-        (0, _jquery2.default)(opts.loading.selector).text(opts.loading.loadingText);
-      }
-    },
-    success: function success(response) {
-      if (!response) {
-        throw new Error('Couldn\'t find a response');
-      }
-
-      var lowerCasedDataType = setup.dataType ? setup.dataType.toLowerCase() : null;
-
-      if (lowerCasedDataType === 'json') {
-        if (!(0, _index.isFunction)(opts.jsonResult)) {
-          throw new Error('Expected \'' + opts.jsonResult + '\' to be a function');
-        }
-        opts.jsonResult(response);
-      } else {
-        (0, _jquery2.default)(opts.outputTarget).append(response);
-      }
-      (0, _jquery2.default)(opts.loading.selector).remove();
-    },
-    complete: function complete() {
-      if (opts.isComplete) {
-        if (!(0, _index.isFunction)(opts.isComplete)) {
-          throw new Error('Expected \'' + opts.cb + '\' to be a function');
-        }
-        opts.isComplete();
-      }
-    },
-    error: function error() {
-      if (typeof opts.errorMsg !== 'string') {
-        throw new Error('Error message should not be a ' + _typeof(opts.errorMsg));
-      }
-
-      (0, _jquery2.default)(opts.outputTarget).html(opts.errorMsg);
-    }
-  });
-  console.log(setup);
-  return _jquery2.default.ajax(setup);
-}
-
-/***/ }),
+/* 2 */,
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10666,6 +10569,104 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = ajaxify;
+
+var _jquery = __webpack_require__(1);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _index = __webpack_require__(0);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ajaxify() {
+  var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+  if (!(0, _index.isPlainObject)(opts)) {
+    throw new Error('Expected a plain object, and not a \'' + (typeof opts === 'undefined' ? 'undefined' : _typeof(opts)) + '\'.');
+  }
+
+  /**
+  * Default settings
+  */
+  opts = ({
+    method: null,
+    url: null,
+    data: null,
+    dataType: null,
+    outputTarget: null,
+    isComplete: Function,
+    loading: {
+      selector: null,
+      loadingText: null
+    },
+    errorMsg: null,
+    jsonResult: Function
+  }, opts);
+
+  // Define the ajax setup object
+  var setup = _extends({}, setup, {
+    type: opts.method,
+    url: opts.url,
+    data: opts.data,
+    dataType: opts.dataType,
+    beforeSend: function beforeSend() {
+      if (opts.loading) {
+        (0, _jquery2.default)(opts.loading.selector).text(opts.loading.loadingText);
+      }
+    },
+    success: function success(response) {
+      if (!response) {
+        throw new Error('Couldn\'t find a response');
+      }
+
+      var lowerCasedDataType = setup.dataType ? setup.dataType.toLowerCase() : null;
+
+      if (lowerCasedDataType === 'json') {
+        if (!(0, _index.isFunction)(opts.jsonResult)) {
+          throw new Error('Expected \'' + opts.jsonResult + '\' to be a function');
+        }
+        opts.jsonResult(response);
+      } else {
+        (0, _jquery2.default)(opts.outputTarget).append(response);
+      }
+      (0, _jquery2.default)(opts.loading.selector).remove();
+    },
+    complete: function complete() {
+      if (opts.isComplete) {
+        if (!(0, _index.isFunction)(opts.isComplete)) {
+          throw new Error('Expected \'' + opts.cb + '\' to be a function');
+        }
+        opts.isComplete();
+      }
+    },
+    error: function error() {
+      if (typeof opts.errorMsg !== 'string') {
+        throw new Error('Error message should not be a ' + _typeof(opts.errorMsg));
+      }
+
+      (0, _jquery2.default)(opts.outputTarget).html(opts.errorMsg);
+    }
+  });
+  console.log(setup);
+  return _jquery2.default.ajax(setup);
+}
 
 /***/ })
 /******/ ]);

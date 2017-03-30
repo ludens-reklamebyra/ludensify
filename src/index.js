@@ -5,7 +5,7 @@ import isString from './isString';
 import isArray from './isArray';
 
 import toggle from './toggle';
-import ajaxify from './ajax';
+import ajaxify from './ajaxify';
 
 export {
   isNumber,
