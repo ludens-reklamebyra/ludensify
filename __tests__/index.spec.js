@@ -4,7 +4,9 @@ import {
   isFunction,
   isString,
   isArray,
-  toggle
+  toggle,
+  isEmptyString,
+  checkNumberLength
 } from '../src/index';
 
 describe('isNumber', () => {
@@ -82,5 +84,21 @@ describe('toggle', () => {
     expect(() => {
       toggle({})
     }).toThrow(Error)
+  })
+})
+
+describe('isEmptyString', () => {
+  it('should return true when input is empty', () => {
+    expect(
+      isEmptyString('test')
+    ).toEqual(false)
+  })
+})
+
+describe('checkNumberLength', () => {
+  it('should return false if input length is higher than set max length', () => {
+    expect(
+      checkNumberLength('123456789', 8)
+    ).toEqual(false)
   })
 })
