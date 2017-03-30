@@ -9,7 +9,6 @@ import {
   checkNumberLength,
   isEmail,
   isPhone,
-  ajaxify
 } from '../src/index';
 
 describe('isNumber', () => {
@@ -131,16 +130,5 @@ describe('isPhone', () => {
     expect(
       isPhone(12345678)
     ).toEqual(true)
-  });
-});
-
-describe('ajaxify', () => {
-  it('should throw on error if response cannot be fetched', () => {
-    expect(() => {
-      ajaxify({
-        method: 'get',
-        url: 'some fake url that should throw'
-      })
-    }).toThrow(Error)
   });
 });
