@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -76,31 +76,35 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.toggle = exports.isArray = exports.isString = exports.isFunction = exports.isPlainObject = exports.isNumber = undefined;
+exports.ajaxify = exports.toggle = exports.isArray = exports.isString = exports.isFunction = exports.isPlainObject = exports.isNumber = undefined;
 
-var _isNumber = __webpack_require__(3);
+var _isNumber = __webpack_require__(5);
 
 var _isNumber2 = _interopRequireDefault(_isNumber);
 
-var _isPlainObject = __webpack_require__(4);
+var _isPlainObject = __webpack_require__(6);
 
 var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-var _isFunction = __webpack_require__(2);
+var _isFunction = __webpack_require__(4);
 
 var _isFunction2 = _interopRequireDefault(_isFunction);
 
-var _isString = __webpack_require__(5);
+var _isString = __webpack_require__(7);
 
 var _isString2 = _interopRequireDefault(_isString);
 
-var _isArray = __webpack_require__(1);
+var _isArray = __webpack_require__(3);
 
 var _isArray2 = _interopRequireDefault(_isArray);
 
-var _toggle = __webpack_require__(7);
+var _toggle = __webpack_require__(8);
 
 var _toggle2 = _interopRequireDefault(_toggle);
+
+var _ajax = __webpack_require__(2);
+
+var _ajax2 = _interopRequireDefault(_ajax);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -110,188 +114,10 @@ exports.isFunction = _isFunction2.default;
 exports.isString = _isString2.default;
 exports.isArray = _isArray2.default;
 exports.toggle = _toggle2.default;
+exports.ajaxify = _ajax2.default;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-exports.default = isArray;
-function isArray(input) {
-  return (typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object' && Array.isArray(input);
-}
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = isFunction;
-function isFunction(input) {
-  return typeof input === 'function';
-}
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = isNumber;
-function isNumber(input) {
-  return typeof input === 'number';
-}
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-exports.default = isPlainObject;
-function isPlainObject(input) {
-  return (typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object' && !Array.isArray(input);
-}
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = isString;
-function isString(input) {
-  return typeof input === 'string';
-}
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _jquery = __webpack_require__(8);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _index = __webpack_require__(0);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
-* Use this file to test DOM-stuff.
-* you can do imports like this:
-* import { isNumber } from '../lib/index';
-**/
-document.addEventListener('DOMContentLoaded', function () {
-  console.log('Demo is running');
-
-  (0, _index.toggle)({
-    trigger: (0, _jquery2.default)('#toggle-trigger'),
-    element: (0, _jquery2.default)('#toggle-element'),
-    speed: 1000,
-    complete: function complete($this, element, speed) {
-      console.log({
-        $this: $this,
-        element: element,
-        speed: speed
-      });
-    }
-  });
-});
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = toggle;
-
-var _jquery = __webpack_require__(8);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _isFunction = __webpack_require__(2);
-
-var _isFunction2 = _interopRequireDefault(_isFunction);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function toggle(_ref) {
-  var trigger = _ref.trigger,
-      element = _ref.element,
-      event = _ref.event,
-      speed = _ref.speed,
-      complete = _ref.complete;
-
-  if (!trigger) {
-    throw new Error('Expected a \'trigger\' for the slide event.');
-  } else if (!element) {
-    throw new Error('Expected an \'element\' to slide');
-  }
-
-  var defaultEvent = event || 'click';
-  var defaultSpeed = speed || 300;
-
-  trigger.on(defaultEvent, function (e) {
-    var $this = (0, _jquery2.default)(e.currentTarget);
-
-    element.stop().slideToggle(defaultSpeed, function () {
-      if (complete) {
-        if ((0, _isFunction2.default)(complete)) {
-          complete($this, element, speed);
-        } else {
-          throw new Error('\n            Expected \'complete\' to be a function.\n          ');
-        }
-      }
-    });
-  });
-
-  return {
-    trigger: trigger,
-    element: element,
-    event: event,
-    speed: speed,
-    complete: complete
-  };
-}
-
-/***/ }),
-/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10549,6 +10375,297 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = ajaxify;
+
+var _jquery = __webpack_require__(1);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _index = __webpack_require__(0);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ajaxify() {
+  var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+  if (!(0, _index.isPlainObject)(opts)) {
+    throw new Error('Expected a plain object, and not a \'' + (typeof opts === 'undefined' ? 'undefined' : _typeof(opts)) + '\'.');
+  }
+
+  /**
+  * Default settings
+  */
+  opts = ({
+    method: null,
+    url: null,
+    data: null,
+    dataType: null,
+    outputTarget: null,
+    isComplete: Function,
+    loading: {
+      selector: null,
+      loadingText: null
+    },
+    errorMsg: null,
+    jsonResult: Function
+  }, opts);
+
+  // Define the ajax setup object
+  var setup = _extends({}, setup, {
+    type: opts.method,
+    url: opts.url,
+    data: opts.data,
+    dataType: opts.dataType,
+    beforeSend: function beforeSend() {
+      if (opts.loading) {
+        (0, _jquery2.default)(opts.loading.selector).text(opts.loading.loadingText);
+      }
+    },
+    success: function success(response) {
+      if (!response) {
+        throw new Error('Couldn\'t find a response');
+      }
+
+      var lowerCasedDataType = setup.dataType ? setup.dataType.toLowerCase() : null;
+
+      if (lowerCasedDataType === 'json') {
+        if (!(0, _index.isFunction)(opts.jsonResult)) {
+          throw new Error('Expected \'' + opts.jsonResult + '\' to be a function');
+        }
+        opts.jsonResult(response);
+      } else {
+        (0, _jquery2.default)(opts.outputTarget).append(response);
+      }
+      (0, _jquery2.default)(opts.loading.selector).remove();
+    },
+    complete: function complete() {
+      if (opts.isComplete) {
+        if (!(0, _index.isFunction)(opts.isComplete)) {
+          throw new Error('Expected \'' + opts.cb + '\' to be a function');
+        }
+        opts.isComplete();
+      }
+    },
+    error: function error() {
+      if (typeof opts.errorMsg !== 'string') {
+        throw new Error('Error message should not be a ' + _typeof(opts.errorMsg));
+      }
+
+      (0, _jquery2.default)(opts.outputTarget).html(opts.errorMsg);
+    }
+  });
+  console.log(setup);
+  return _jquery2.default.ajax(setup);
+}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = isArray;
+function isArray(input) {
+  return (typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object' && Array.isArray(input);
+}
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isFunction;
+function isFunction(input) {
+  return typeof input === 'function';
+}
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isNumber;
+function isNumber(input) {
+  return typeof input === 'number';
+}
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = isPlainObject;
+function isPlainObject(input) {
+  return (typeof input === 'undefined' ? 'undefined' : _typeof(input)) === 'object' && !Array.isArray(input);
+}
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = isString;
+function isString(input) {
+  return typeof input === 'string';
+}
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = toggle;
+
+var _jquery = __webpack_require__(1);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _index = __webpack_require__(0);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function toggle(_ref) {
+  var trigger = _ref.trigger,
+      element = _ref.element,
+      event = _ref.event,
+      speed = _ref.speed,
+      complete = _ref.complete;
+
+  if (!trigger) {
+    throw new Error('Expected a \'trigger\' for the slide event.');
+  } else if (!element) {
+    throw new Error('Expected an \'element\' to slide');
+  }
+
+  var defaultEvent = event || 'click';
+  var defaultSpeed = speed || 300;
+
+  trigger.on(defaultEvent, function (e) {
+    var $this = (0, _jquery2.default)(e.currentTarget);
+
+    element.stop().slideToggle(defaultSpeed, function () {
+      if (complete) {
+        if ((0, _index.isFunction)(complete)) {
+          complete($this, element, speed);
+        } else {
+          throw new Error('\n            Expected \'complete\' to be a function.\n          ');
+        }
+      }
+    });
+  });
+
+  return {
+    trigger: trigger,
+    element: element,
+    event: event,
+    speed: speed,
+    complete: complete
+  };
+}
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _jquery = __webpack_require__(1);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _index = __webpack_require__(0);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+* Use this file to test DOM-stuff.
+* you can do imports like this:
+* import { isNumber } from '../lib/index';
+**/
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('Demo is running');
+
+  (0, _index.ajaxify)({
+    method: 'get',
+    url: '../demo/dummyData.json',
+    errorMsg: 'Noe gikk alvorlig galt!',
+    loading: {
+      selector: (0, _jquery2.default)('body'),
+      loadingText: 'laster....'
+    },
+    isComplete: function isComplete() {
+      console.log('completed');
+    },
+    jsonResult: function jsonResult(response) {
+      console.log(response);
+    }
+  });
+
+  (0, _index.toggle)({
+    trigger: (0, _jquery2.default)('#toggle-trigger'),
+    element: (0, _jquery2.default)('#toggle-element'),
+    speed: 1000,
+    complete: function complete($this, element, speed) {
+      console.log({
+        $this: $this,
+        element: element,
+        speed: speed
+      });
+    }
+  });
+});
 
 /***/ })
 /******/ ]);

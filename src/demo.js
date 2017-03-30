@@ -4,10 +4,26 @@
 * import { isNumber } from '../lib/index';
 **/
 import $ from 'jquery';
-import { toggle } from '../lib/index';
+import { toggle, ajaxify } from '../lib/index';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Demo is running');
+
+  ajaxify({
+    method: 'get',
+    url: '../demo/dummyData.json',
+    errorMsg: 'Noe gikk alvorlig galt!',
+    loading: {
+      selector: $('body'),
+      loadingText: 'laster....'
+    },
+    isComplete: () => {
+      console.log('completed');
+    },
+    jsonResult: response => {
+      console.log(response);
+    }
+  });
 
   toggle({
     trigger: $('#toggle-trigger'),
