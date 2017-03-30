@@ -6,7 +6,10 @@ import {
   isArray,
   toggle,
   isEmptyString,
-  checkNumberLength
+  checkNumberLength,
+  isEmail,
+  isPhone,
+  ajaxify
 } from '../src/index';
 
 describe('isNumber', () => {
@@ -102,3 +105,42 @@ describe('checkNumberLength', () => {
     ).toEqual(false)
   })
 })
+
+describe('isEmail', () => {
+  it('should return false if does not match', () => {
+    expect(
+      isEmail('hell.com')
+    ).toEqual(false)
+  });
+
+  it('should return true if it matches regex', () => {
+    expect(
+      isEmail('oyvind@ludensreklame.no')
+    ).toEqual(true)
+  });
+});
+
+describe('isPhone', () => {
+  it('should return false if does not match', () => {
+    expect(
+      isPhone('232323')
+    ).toEqual(false)
+  });
+
+  it('should return true if it matches regex', () => {
+    expect(
+      isPhone(12345678)
+    ).toEqual(true)
+  });
+});
+
+describe('ajaxify', () => {
+  it('should throw on error if response cannot be fetched', () => {
+    expect(() => {
+      ajaxify({
+        method: 'get',
+        url: 'some fake url that should throw'
+      })
+    }).toThrow(Error)
+  });
+});

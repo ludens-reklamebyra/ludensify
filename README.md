@@ -4,13 +4,17 @@ Utility helpers and functions to make developing fun and easy!
 
 ### Current API
 
-<small>Type checkers</small>
+<small>Helper functions for simple checks</small>
 
 - isArray
 - isFunction
 - isNumber
 - isPlainObject
 - isString
+- isEmptyString
+- isEmail
+- isPhone
+- checkNumberLength
 
 <small>DOM manipulation</small>
 

@@ -57,10 +57,11 @@ export default function ajaxify(opts = {}) {
     },
     complete: () => {
       if (opts.isComplete) {
-        if (!isFunction(opts.isComplete)) {
+        if (isFunction(opts.isComplete)) {
+          opts.isComplete();
+        } else {
           throw new Error(`Expected '${opts.cb}' to be a function`);
         }
-        opts.isComplete();
       }
     },
     error: () => {
@@ -73,6 +74,7 @@ export default function ajaxify(opts = {}) {
       $(opts.outputTarget).html(opts.errorMsg);
     }
   };
-  console.log(setup);
-  return $.ajax(setup);
+
+  $.ajax(setup);
+  return opts;
 }
