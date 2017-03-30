@@ -4,7 +4,7 @@
 * import { isNumber } from '../lib/index';
 **/
 import $ from 'jquery';
-import { toggle, ajaxify, isEmptyString } from '../lib/index';
+import { toggle, ajaxify, isEmptyString, checkNumberLength } from '../lib/index';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Demo is running');
@@ -40,5 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   console.log('isEmptyString is ' + isEmptyString(''));
+  console.log('checkNumberLength is ' + checkNumberLength('12345678', 8));
 
 });
