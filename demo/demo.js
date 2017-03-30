@@ -4,7 +4,7 @@
 * import { isNumber } from '../lib/index';
 **/
 import $ from 'jquery';
-import { toggle, ajaxify } from '../lib/index';
+import { toggle, ajaxify, isEmptyString } from '../lib/index';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Demo is running');
@@ -38,4 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  console.log(isEmptyString(''));
+
 });

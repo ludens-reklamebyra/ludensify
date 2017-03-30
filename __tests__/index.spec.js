@@ -4,7 +4,8 @@ import {
   isFunction,
   isString,
   isArray,
-  toggle
+  toggle,
+  isEmptyString
 } from '../src/index';
 
 describe('isNumber', () => {
@@ -82,5 +83,13 @@ describe('toggle', () => {
     expect(() => {
       toggle({})
     }).toThrow(Error)
+  })
+})
+
+describe('isEmptyString', () => {
+  it('should return true when input is empty', () => {
+    expect(
+      isEmptyString('test')
+    ).toEqual(false)
   })
 })
