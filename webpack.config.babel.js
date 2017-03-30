@@ -1,8 +1,20 @@
 import webpack from 'webpack'
 import path from 'path'
 
+function getEntrySources(sources) {
+  if (process.env.NODE_ENV !== 'production') {
+    sources.push('webpack-dev-server/client?http://localhost:8080')
+    sources.push('webpack/hot/only-dev-server')
+  }
+  return sources
+}
+
 module.exports = {
-	entry: './src/demo.js',
+	entry: {
+    bundle: getEntrySources([
+      './demo/demo.js'
+    ])
+  },
 	module: {
 		rules: [{
 			test: /\.js?$/,
@@ -15,6 +27,12 @@ module.exports = {
 	output: {
 		filename: '[name].js',
 		path: path.resolve(__dirname, 'demo'),
-		publicPath: '/'
+		publicPath: 'http://localhost:8080/'
+	},
+	devServer: {
+		contentBase: "./demo",
+		noInfo: true,
+		hot: true,
+		inline: true
 	}
 }
