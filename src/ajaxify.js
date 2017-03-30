@@ -64,7 +64,7 @@ export default function ajaxify(opts = {}) {
       }
     },
     error: () => {
-      if (typeof opts.errorMsg !== 'string') {
+      if (!isString(opts.errorMsg)) {
         throw new Error(
           `Error message should not be a ${typeof opts.errorMsg}`
         );

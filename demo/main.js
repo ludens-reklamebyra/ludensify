@@ -10657,7 +10657,7 @@ function ajaxify() {
       }
     },
     error: function error() {
-      if (typeof opts.errorMsg !== 'string') {
+      if (!(0, _index.isString)(opts.errorMsg)) {
         throw new Error('Error message should not be a ' + _typeof(opts.errorMsg));
       }
 
