@@ -11,12 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ajaxify({
     method: 'get',
-    url: '../demo/dummyData.json',
+    url: 'http://www.ludensreklame.no/wp-json/wp/v2/posts',
     errorMsg: 'Noe gikk alvorlig galt!',
     loading: {
-      selector: $('body'),
+      selector: $('#loader'),
       loadingText: 'laster....'
     },
+    dataType: 'json',
     isComplete: () => {
       console.log('completed');
     },
