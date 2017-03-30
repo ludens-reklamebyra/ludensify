@@ -39,6 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  console.log(isEmptyString(''));
+  console.log('isEmptyString is ' + isEmptyString(''));
 
 });
