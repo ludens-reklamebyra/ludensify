@@ -11,8 +11,8 @@ function getEntrySources(sources) {
 
 module.exports = {
 	entry: {
-    main: getEntrySources([
-      './src/demo.js'
+    bundle: getEntrySources([
+      './demo/demo.js'
     ])
   },
 	module: {

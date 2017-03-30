@@ -13917,57 +13917,56 @@ module.exports = function(module) {
 
 /***/ }),
 /* 37 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-var _jquery = __webpack_require__(16);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _index = __webpack_require__(15);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_index__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_index___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__lib_index__);
 /**
 * Use this file to test DOM-stuff.
 * you can do imports like this:
 * import { isNumber } from '../lib/index';
 **/
-document.addEventListener('DOMContentLoaded', function () {
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
   console.log('Demo is running');
 
-  (0, _index.ajaxify)({
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__lib_index__["ajaxify"])({
     method: 'get',
-    url: 'file:///Users/oyvind/Documents/npm/ludensify/demo/dummyData.json',
+    url: 'http://www.ludensreklame.no/wp-json/wp/v2/posts',
     errorMsg: 'Noe gikk alvorlig galt!',
     loading: {
-      selector: (0, _jquery2.default)('#loader'),
+      selector: __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#loader'),
       loadingText: 'laster....'
     },
     dataType: 'json',
-    isComplete: function isComplete() {
+    isComplete: () => {
       console.log('completed');
     },
-    jsonResult: function jsonResult(response) {
+    jsonResult: response => {
       console.log(response);
     }
   });
 
-  (0, _index.toggle)({
-    trigger: (0, _jquery2.default)('#toggle-trigger'),
-    element: (0, _jquery2.default)('#toggle-element'),
+  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__lib_index__["toggle"])({
+    trigger: __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#toggle-trigger'),
+    element: __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#toggle-element'),
     speed: 1000,
-    complete: function complete($this, element, speed) {
+    complete: ($this, element, speed) => {
       console.log({
-        $this: $this,
-        element: element,
-        speed: speed
+        $this,
+        element,
+        speed
       });
     }
   });
 });
+
 
 /***/ }),
 /* 38 */
