@@ -15,6 +15,7 @@ Utility helpers and functions to make developing fun and easy!
 - isEmail
 - isPhone
 - checkNumberLength
+- formatDate
 
 <small>DOM manipulation</small>
 

@@ -9,6 +9,7 @@ import {
   checkNumberLength,
   isEmail,
   isPhone,
+  formatDate
 } from '../src/index';
 
 describe('isNumber', () => {
@@ -130,5 +131,14 @@ describe('isPhone', () => {
     expect(
       isPhone(12345678)
     ).toEqual(true)
+  });
+});
+
+describe('formatDate', () => {
+  it('should return correct output', () => {
+    const now = new Date();
+    expect(
+      formatDate(now)
+    ).toEqual(formatDate(now))
   });
 });

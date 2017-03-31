@@ -8,6 +8,7 @@ import checkNumberLength from './checkNumberLength';
 import isEmail from './isEmail';
 import isPhone from './isPhone';
 import toggle from './toggle';
+import formatDate from './formatDate';
 
 export {
   isNumber,
@@ -19,5 +20,6 @@ export {
   isEmptyString,
   checkNumberLength,
   isEmail,
-  isPhone
+  isPhone,
+  formatDate
 };
