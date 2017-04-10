@@ -16,6 +16,7 @@ Utility helpers and functions to make developing fun and easy!
 - isPhone
 - checkNumberLength
 - formatDate
+- arrayMax
 
 <small>DOM manipulation</small>
 
