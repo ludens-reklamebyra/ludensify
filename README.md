@@ -20,7 +20,7 @@ Utility helpers and functions to make developing fun and easy!
 
 <small>DOM manipulation</small>
 
-- toggle
+- `toggle({trigger, element, event, speed, complete})`
 
 ### Development
 
