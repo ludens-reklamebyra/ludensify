@@ -9,7 +9,8 @@ import {
   checkNumberLength,
   isEmail,
   isPhone,
-  formatDate
+  formatDate,
+  arrayMax
 } from '../src/index';
 
 describe('isNumber', () => {
@@ -142,3 +143,11 @@ describe('formatDate', () => {
     ).toEqual(formatDate(now))
   });
 });
+
+describe('arrayMax', () => {
+  it('should return the heighest number in given array', () => {
+    expect(
+      arrayMax([1, 2, 300, 100, 10])
+    ).toEqual(300);
+  })
+})
