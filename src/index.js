@@ -9,6 +9,7 @@ import isEmail from './isEmail';
 import isPhone from './isPhone';
 import toggle from './toggle';
 import formatDate from './formatDate';
+import arrayMax from './arrayMax';
 
 export {
   isNumber,
@@ -21,5 +22,6 @@ export {
   checkNumberLength,
   isEmail,
   isPhone,
-  formatDate
+  formatDate,
+  arrayMax
 };
