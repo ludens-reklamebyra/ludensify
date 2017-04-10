@@ -2,6 +2,8 @@
 
 Utility helpers and functions to make developing fun and easy!
 
+[![Build Status](https://travis-ci.org/ludens-reklamebyra/ludensify.svg?branch=master)](https://travis-ci.org/ludens-reklamebyra/ludensify)
+
 ### Current API
 
 <small>Helper functions for simple checks</small>
