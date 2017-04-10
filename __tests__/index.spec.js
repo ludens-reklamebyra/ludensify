@@ -89,6 +89,18 @@ describe('toggle', () => {
       toggle({})
     }).toThrow(Error)
   })
+
+  it('should throw when complete is not a function', () => {
+    expect(() => {
+      toggle({element: 'div', complete: ''})
+    }).toThrow(Error);
+  })
+
+  it('should throw if argument given is not an object', () => {
+    expect(() => {
+      toggle('')
+    }).toThrow(Error);
+  })
 })
 
 describe('isEmptyString', () => {

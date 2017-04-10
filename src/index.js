@@ -1,15 +1,15 @@
-import isNumber from './isNumber';
-import isPlainObject from './isPlainObject';
-import isFunction from './isFunction';
-import isString from './isString';
-import isArray from './isArray';
-import isEmptyString from './isEmptyString';
-import checkNumberLength from './checkNumberLength';
-import isEmail from './isEmail';
-import isPhone from './isPhone';
-import toggle from './toggle';
-import formatDate from './formatDate';
-import arrayMax from './arrayMax';
+import isNumber from './modules/isNumber';
+import isPlainObject from './modules/isPlainObject';
+import isFunction from './modules/isFunction';
+import isString from './modules/isString';
+import isArray from './modules/isArray';
+import isEmptyString from './modules/isEmptyString';
+import checkNumberLength from './modules/checkNumberLength';
+import isEmail from './modules/isEmail';
+import isPhone from './modules/isPhone';
+import toggle from './modules/toggle';
+import formatDate from './modules/formatDate';
+import arrayMax from './modules/arrayMax';
 
 export {
   isNumber,

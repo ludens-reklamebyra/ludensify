@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { isFunction } from './index';
+import { isFunction } from '../index';
 
 export default function toggle({ trigger, element, event, speed, complete }) {
   if (!trigger) {
